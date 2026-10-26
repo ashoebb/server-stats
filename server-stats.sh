@@ -28,3 +28,15 @@ echo "CPU usage: ${cpu}%"
 
 echo "--- Memory ---"
 get_memory_usage || { echo "Error: could not read memory stats." >&2; exit 1; }
+
+get_disk_usage() {
+    df -P -k / | awk 'NR == 2 {
+        used = $3; avail = $4
+        if (used + avail == 0) exit 1
+        printf "Used: %.1f GB (%.1f%%)\n", used / 1048576, used / (used + avail) * 100
+        printf "Free: %.1f GB (%.1f%%)\n", avail / 1048576, avail / (used + avail) * 100
+    }'
+}
+
+echo "--- Disk (/) ---"
+get_disk_usage || { echo "Error: could not read disk stats." >&2; exit 1; }
