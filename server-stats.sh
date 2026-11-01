@@ -65,21 +65,25 @@ get_load_average() {
     awk '{print $1 " (1m), " $2 " (5m), " $3 " (15m)"}' /proc/loadavg
 }
 
-get_logged_in_users() {
-    who | wc -l
+get_sessions() {
+    w -h | wc -l
 }
 
 get_failed_logins() {
-    if ! command -v lastb > /dev/null 2>&1 || [ ! -r /var/log/btmp ]; then
-        echo "unavailable (run as root)"
-        return 0
+    if [ ! -r /var/log/btmp ]; then
+        echo "unavailable (needs root)"
+    elif command -v lastb > /dev/null 2>&1; then
+        lastb | grep -cv -e '^$' -e '^btmp' || true
+    elif [ ! -s /var/log/btmp ]; then
+        echo 0
+    else
+        echo "unavailable (lastb not installed)"
     fi
-    lastb | grep -cv -e '^$' -e '^btmp' || true
 }
 
 echo "--- System ---"
 echo "OS: $(get_os_version)"
 echo "Uptime: $(uptime -p)"
 echo "Load average: $(get_load_average)"
-echo "Logged-in users: $(get_logged_in_users)"
+echo "Active sessions: $(get_sessions)"
 echo "Failed logins: $(get_failed_logins)"
