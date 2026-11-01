@@ -11,7 +11,7 @@ A Bash script that reports basic performance stats for a Linux server: CPU, memo
 | Disk: used vs free, with percentage (root filesystem) | Done |
 | Top 5 processes by CPU | Done |
 | Top 5 processes by memory | Done |
-| OS version, uptime, load average, logged-in users, failed logins | Stretch (done) |
+| OS version, uptime, load average, active sessions, failed logins | Stretch (done) |
 
 ## Requirements
 
@@ -69,5 +69,5 @@ shfmt -d server-stats.sh
 
 - Disk usage for every real filesystem
 - A more accurate CPU reading from `/proc/stat`
-- Stretch stats: OS version, uptime, load average, logged-in users, failed logins
+- Stretch stats: OS version, uptime, load average, active sessions, failed logins
 - Tests with bats and a ShellCheck CI workflow

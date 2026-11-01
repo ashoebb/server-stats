@@ -133,3 +133,8 @@ Current choice: `/` only. Planned improvement: one line per real filesystem.
 - [x] Top 5 processes by memory
 - [x] Stretch: OS version, uptime, load average, active sessions, failed logins
 - [ ] Read `/proc/stat` twice for a more accurate CPU reading
+
+## Stretch stats notes
+
+- `who` returned nothing on this Ubuntu 26.04 VM even with active sessions, so active sessions are counted with `w -h`.
+- Failed logins come from `lastb`, which is not installed here. `/var/log/btmp` is readable only by root or the `utmp` group, so a normal run reports "unavailable (needs root)" instead of a misleading 0. Under `sudo`, an empty `btmp` is reported as 0.
