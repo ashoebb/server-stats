@@ -1,6 +1,6 @@
 # server-stats
 
-A Bash script that reports basic performance stats for a Linux server: CPU, memory, and disk, with top processes planned. Built as the first project in the [roadmap.sh DevOps projects](https://roadmap.sh/devops/projects) list.
+A Bash script that reports basic performance stats for a Linux server: CPU, memory, disk, and top processes. Built as the first project in the [roadmap.sh DevOps projects](https://roadmap.sh/devops/projects) list.
 
 ## What it reports
 
@@ -67,7 +67,6 @@ shfmt -d server-stats.sh
 
 ## Roadmap
 
-- Top 5 processes by CPU and memory
 - Disk usage for every real filesystem
 - A more accurate CPU reading from `/proc/stat`
 - Stretch stats: OS version, uptime, load average, logged-in users, failed logins
