@@ -40,3 +40,17 @@ get_disk_usage() {
 
 echo "--- Disk (/) ---"
 get_disk_usage || { echo "Error: could not read disk stats." >&2; exit 1; }
+get_disk_usage() {
+    df -P -k / | awk '
+        NR == 2 && $3 + $4 > 0 {
+            used = $3; avail = $4
+            printf "Used: %.1f GB (%.1f%%)\n", used / 1048576, used / (used + avail) * 100
+            printf "Free: %.1f GB (%.1f%%)\n", avail / 1048576, avail / (used + avail) * 100
+            ok = 1
+        }
+        END { exit !ok }
+    '
+}
+
+echo "--- Disk (/) ---"
+get_disk_usage || { echo "Error: could not read disk stats." >&2; exit 1; }
