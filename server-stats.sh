@@ -43,3 +43,16 @@ get_disk_usage() {
 
 echo "--- Disk (/) ---"
 get_disk_usage || { echo "Error: could not read disk stats." >&2; exit 1; }
+
+get_top_cpu() {
+    ps -eo pid,pcpu,pmem,comm --sort=-pcpu | head -n 6
+}
+
+get_top_mem() {
+    ps -eo pid,pcpu,pmem,comm --sort=-pmem | head -n 6
+}
+
+echo "--- Top 5 by CPU ---"
+get_top_cpu
+echo "--- Top 5 by memory ---"
+get_top_mem
