@@ -71,3 +71,7 @@ shfmt -d server-stats.sh
 - A more accurate CPU reading from `/proc/stat`
 - Stretch stats: OS version, uptime, load average, active sessions, failed logins
 - Tests with bats and a ShellCheck CI workflow
+
+## Project page
+
+https://roadmap.sh/projects/server-stats
