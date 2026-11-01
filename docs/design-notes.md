@@ -129,7 +129,7 @@ Current choice: `/` only. Planned improvement: one line per real filesystem.
 - [x] CPU usage
 - [x] Memory: free vs used, with percentage
 - [x] Disk: free vs used, with percentage (root filesystem; multi-filesystem support planned)
-- [ ] Top 5 processes by CPU
-- [ ] Top 5 processes by memory
+- [x] Top 5 processes by CPU
+- [x] Top 5 processes by memory
 - [ ] Stretch: OS version, uptime, load average, logged-in users, failed logins
 - [ ] Read `/proc/stat` twice for a more accurate CPU reading
