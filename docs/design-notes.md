@@ -66,8 +66,8 @@ General lesson: positional parsing of human-oriented output is fragile, and awk 
 ## Roadmap
 
 - [x] CPU usage
-- [ ] Memory: free vs used, with percentage
-- [ ] Disk: free vs used, with percentage
-- [ ] Top 5 processes by CPU
-- [ ] Top 5 processes by memory
-- [ ] Stretch: OS version, uptime, load average, logged-in users, failed logins
+- [x] Memory: free vs used, with percentage
+- [x] Disk: free vs used, with percentage
+- [x] Top 5 processes by CPU
+- [x] Top 5 processes by memory
+- [x] Stretch: OS version, uptime, load average, logged-in users, failed logins
