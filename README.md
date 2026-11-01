@@ -8,9 +8,9 @@ A Bash script that reports basic performance stats for a Linux server: CPU, memo
 |---|---|
 | Total CPU usage | Done |
 | Memory: used vs available, with percentage | Done |
-| Disk: used vs free, with percentage (root filesystem) | In progress |
-| Top 5 processes by CPU | Planned |
-| Top 5 processes by memory | Planned |
+| Disk: used vs free, with percentage (root filesystem) | Done |
+| Top 5 processes by CPU | Done |
+| Top 5 processes by memory | Done |
 | OS version, uptime, load average, logged-in users, failed logins | Stretch |
 
 ## Requirements
